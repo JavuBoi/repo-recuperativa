@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Estacionamientos Estatek ieto</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <h4 class="col-4">Ingreso</h4>
+            <h4 class="col-4 text-end">Total recaudado: <span id="total"></span></h4>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-auto">
+                <label class="col-form-label" for="patente">Patente</label>
+            </div>
+            <div class="col-auto">
+                <input class="form-control" type="number" name="precio" id="precio">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" onclick="agregar_producto()">Agregar</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h4>Registros</h4>
+            </div>
+            <div class="col-8">
+                <table class="table table-striped">
+                    <thead>                        
+                        <tr>
+                            <th class="text-center">Fecha/Hora Entrada</th>
+                            <th class="text-center">Patente</th>
+                            <th class="text-center">Fecha/Hora Salida</th>
+                            <th class="text-center">Monto a pagar</th>
+                            <th class="text-center">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productos">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="estacionamiento.js"></script>
+</body>
+
+</html>
