@@ -14,17 +14,17 @@
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <h4 class="col-4">Ingreso</h4>
-            <h4 class="col-4 text-end">Total recaudado: <span id="total"></span></h4>
+            <h4 class="col-4 text-end">Total recaudado: $<span id="total"></span></h4>
         </div>
         <div class="row justify-content-center align-items-center">
             <div class="col-auto">
                 <label class="col-form-label" for="patente">Patente</label>
             </div>
             <div class="col-auto">
-                <input class="form-control" type="number" name="precio" id="precio">
+                <input class="form-control" type="text" name="patente" id="patente">
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary" onclick="agregar_producto()">Agregar</button>
+                <button class="btn btn-primary" onclick="registrar_ingreso()">Registrar Ingreso</button>
             </div>
         </div>
 
@@ -36,14 +36,14 @@
                 <table class="table table-striped">
                     <thead>                        
                         <tr>
-                            <th class="text-center">Fecha/Hora Entrada</th>
-                            <th class="text-center">Patente</th>
-                            <th class="text-center">Fecha/Hora Salida</th>
-                            <th class="text-center">Monto a pagar</th>
-                            <th class="text-center">Acción</th>
+                            <th>Fecha/Hora Entrada</th>
+                            <th>Patente</th>
+                            <th>Fecha/Hora Salida</th>
+                            <th>Monto a pagar</th>
+                            <th>Acción</th>
                         </tr>
                     </thead>
-                    <tbody id="productos">
+                    <tbody id="registros">
                     </tbody>
                 </table>
             </div>
