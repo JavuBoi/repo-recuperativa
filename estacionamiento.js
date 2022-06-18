@@ -52,13 +52,36 @@ function ingresar(patente) {
     return tr
 }
 
+function calcular_monto(hr_entrada, hr_salida) {
+    let hr_e = parseInt(hr_entrada.split(":")[0])
+    let min_e = parseInt(hr_entrada.split(":")[1])
+    let hr_s = parseInt(hr_salida.split(":")[0])
+    let min_s = parseInt(hr_salida.split(":")[1])
+    let hr_estadia = hr_s - hr_e
+    let min_estadia = min_s - min_e > 0
+    let monto = 500 * min_estadia + 500 * hr_estadia
+
+    console.log(hr_estadia, min_estadia, monto)
+
+    return monto
+}
+
 function salir(tr) {
+    let total = document.getElementById("total")
+    let tiempo = tiempo_actual()
     let cols = tr.childNodes
     let salida_td = cols[2]
     let monto_td = cols[3]
     let btn_content = agregar_td("----")
 
-    salida_td.textContent = tiempo_actual()
+    let hr_entrada = cols[0].textContent.slice(11, 16)
+    let hr_salida = tiempo.slice(11, 16)
+    let monto = calcular_monto(hr_entrada, hr_salida)
+    console.log(hr_entrada, hr_salida)
+
+    salida_td.textContent = tiempo
+    monto_td.textContent = "$" + monto.toString()
+    total.textContent = parseInt(total.textContent) + monto
 
     tr.replaceChild(btn_content, cols[4])
 
@@ -68,5 +91,9 @@ function registrar_ingreso() {
     let registros = document.getElementById("registros")
     let patente = document.getElementById("patente").value
 
-    registros.appendChild(ingresar(patente))
+    if (patente != "") {
+        registros.appendChild(ingresar(patente))
+    } else {
+        alert("No se ha ingresado una patente.")
+    }
 }
