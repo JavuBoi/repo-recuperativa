@@ -36,12 +36,12 @@ function tiempo_actual() {
     return full
 }
 
-function ingresar(patente) {
+function ingresar(registro) {
     let tr = document.createElement("tr")
-    let patente_td = agregar_td(patente)
-    let entrada_td = agregar_td(tiempo_actual())
-    let salida_td = agregar_td("----")
-    let monto_td = agregar_td("$0")
+    let patente_td = agregar_td(registro["patente"])
+    let entrada_td = agregar_td(registro["hora_entrada"])
+    let salida_td = agregar_td(registro["hora_salida"])
+    let monto_td = agregar_td(`$${registro["monto"]}`)
 
     tr.appendChild(entrada_td)
     tr.appendChild(patente_td)
@@ -90,9 +90,15 @@ function salir(tr) {
 function registrar_ingreso() {
     let registros = document.getElementById("registros")
     let patente = document.getElementById("patente").value
+    let registro = {
+        "patente" : patente,
+        "hora_entrada" : tiempo_actual(),
+        "hora_salida" : "----",
+        "monto" : 0
+    }
 
     if (patente != "") {
-        registros.appendChild(ingresar(patente))
+        registros.appendChild(ingresar(registro))
     } else {
         alert("No se ha ingresado una patente.")
     }
